@@ -41,7 +41,7 @@ public class DataInit implements ApplicationRunner {
         if (count == 0) {
             Person p1 = new Person();
             User user1 = new User();
-            user1.setUsername("Aoife");
+            user1.setUsername("David");
             user1.setPassword("yellow7");
             userService.save(user1);
             
