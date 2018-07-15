@@ -1,6 +1,8 @@
 /*
  * Reference: http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/
  * @11th July 2017 
+ * REference: https://www.codebyamir.com/blog/user-account-registration-with-spring-boot
+ * @15th July 2017
 */
 package KYC.Config;
 
@@ -8,6 +10,7 @@ package KYC.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -39,10 +42,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/about", "/h2-console/*").permitAll()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/webjars/**","/index","/", "/home", "/about", "/h2-console/*").permitAll()
                    //potentially to be added to ^
                 .antMatchers("/admin/**").hasAnyAuthority("Admin","User")
                 .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/register").permitAll() //may need to be altered??
+                .antMatchers("/confirm").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -50,8 +55,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
-                
+                .permitAll()
+                //.and().exceptionHandling().accessDeniedPage("/403")
+                ;
+
                 //.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
     }
 
