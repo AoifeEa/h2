@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package h2attempt.h2.init;
+package KYC.init;
 
-import h2attempt.h2.person.User;
+import KYC.person.User;
 
 
 public interface UserService {

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package h2attempt.h2;
+package KYC;
 
-import h2attempt.h2.dao.PersonDAO;
-import h2attempt.h2.person.Person;
+import kyc.dao.PersonDAO;
+import KYC.person.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class MainController {
  
     @Autowired
     private PersonDAO personDAO;
- //Adding a comment
+ 
     @ResponseBody
     @RequestMapping("/")
     public String index() {

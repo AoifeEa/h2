@@ -3,11 +3,11 @@ https://hellokoding.com/registration-and-login-example-with-spring-security-spri
 24/06/2018
 */
 
-package h2attempt.h2.init;
+package KYC.init;
 
-import h2attempt.h2.dao.UserRepository;
-import h2attempt.h2.person.Role;
-import h2attempt.h2.person.User;
+import kyc.dao.UserRepository;
+import KYC.person.Role;
+import KYC.person.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package h2attempt.h2.init;
+package KYC.init;
 
-import h2attempt.h2.person.Person;
-import h2attempt.h2.dao.PersonDAO;
-import h2attempt.h2.person.User;
+import KYC.person.Person;
+import KYC.person.Role;
+import kyc.dao.PersonDAO;
+import KYC.person.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import kyc.dao.RoleRepository;
+import kyc.dao.UserRepository;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -20,14 +25,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataInit implements ApplicationRunner {
  
+     @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private RoleRepository roleRepository;
     private PersonDAO personDAO;
- 
-    private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
  
     @Autowired
     private UserService userService;
 
-    
+    private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
     @Autowired
     public DataInit(PersonDAO personDAO) {
         this.personDAO = personDAO;
@@ -41,11 +49,21 @@ public class DataInit implements ApplicationRunner {
         if (count == 0) {
             Person p1 = new Person();
             User user1 = new User();
-            user1.setUsername("David");
-            user1.setPassword("yellow7");
+            Role r1 = new Role();
+            Role r2 = new Role();
+            r1.setName("Admin");
+            r2.setName("ROLE_User");
+            
+            roleRepository.save(r1);
+            roleRepository.save(r2);
+            Set<Role> roles = new HashSet();
+            roles.add(r1);
+            roles.add(r2);
+            user1.setRoles(roles);
+            user1.setUsername("Aoife");
+            user1.setPassword("abc");
             userService.save(user1);
-            
-            
+           
             p1.setFullName("John");
  
             Date d1 = df.parse("1980-12-20");

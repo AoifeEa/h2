@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package h2attempt.h2.person;
+package KYC.person;
  
 import java.util.Date;
  

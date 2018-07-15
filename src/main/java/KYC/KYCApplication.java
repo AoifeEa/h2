@@ -1,12 +1,12 @@
-package h2attempt.h2;
+package KYC;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class H2Application {
+public class KYCApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(H2Application.class, args);
+		SpringApplication.run(KYCApplication.class, args);
 	}
 }

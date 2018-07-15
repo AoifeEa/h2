@@ -1,4 +1,4 @@
-package h2attempt.h2;
+package KYC;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

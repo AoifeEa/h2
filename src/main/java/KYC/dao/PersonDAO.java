@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package h2attempt.h2.dao;
+package kyc.dao;
 
-import java.util.Date;
 import java.util.List;
  
-import h2attempt.h2.person.Person;
+import KYC.person.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
  
@@ -17,6 +16,6 @@ public interface PersonDAO extends CrudRepository<Person, Long> {
  
     public List<Person> findByFullNameLike(String name);
  
-    public List<Person> findByDateOfBirthGreaterThan(Date date);
- 
 }
+
+//check the difference between jpa repository & crud repository
