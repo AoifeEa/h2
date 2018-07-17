@@ -5,12 +5,16 @@
 package KYC;
 
 import KYC.init.UserService;
+import KYC.person.Role;
 import KYC.person.User;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import kyc.dao.RoleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,8 +29,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class RegisterController {
 
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Autowired
+    private RoleRepository roleRepository;
+    
     @Autowired
     private UserService userService;
 
@@ -60,67 +68,22 @@ public class RegisterController {
             bindingResult.reject("user");
         }
 
-//		if (bindingResult.hasErrors()) { 
-//			modelAndView.setViewName("register");		
-//		} else { // new user so we create user and send confirmation e-mail
-//					
-//			// Disable user until they click on confirmation link in email
-//		    user.setEnabled(false);
-//		      
-//		    userService.saveUser(user);
-//				
-//		return modelAndView;
-//	}
-//Is this segment required???
-        // Process confirmation link
-//	@RequestMapping(value="/confirm", method = RequestMethod.GET)
-//	public ModelAndView showConfirmationPage(ModelAndView modelAndView, @RequestParam("token") String token) {
-//			
-//		User user = userService.findByConfirmationToken(token);
-//			
-//		if (user == null) { // No token found in DB
-//			modelAndView.addObject("invalidToken", "Oops!  This is an invalid confirmation link.");
-//		} else { // Token found
-//			modelAndView.addObject("confirmationToken", user.getConfirmationToken());
-//		}
-//			
-//		modelAndView.setViewName("confirm");
-//		return modelAndView;		
-//	}
-//	
-	// Process confirmation link
-//	@RequestMapping(value="/confirm", method = RequestMethod.POST)
-//	public ModelAndView processConfirmationForm(ModelAndView modelAndView, BindingResult bindingResult, @RequestParam Map requestParams, RedirectAttributes redir) {
-//				
-//		modelAndView.setViewName("confirm");
-//		
-//		Zxcvbn passwordCheck = new Zxcvbn();
-//		
-//		Strength strength = passwordCheck.measure(requestParams.get("password"));
-//		
-//		if (strength.getScore() < 3) {
-//			bindingResult.reject("password");
-//			
-//			redir.addFlashAttribute("errorMessage", "Your password is too weak.  Choose a stronger one.");
-//
-//			modelAndView.setViewName("redirect:confirm?token=" + requestParams.get("token"));
-//			System.out.println(requestParams.get("token"));
-//			return modelAndView;
-//		}
-//	
-//		// Find the user associated with the reset token
-//		User user = userService.findByConfirmationToken(requestParams.get("token"));
-        // Set new password
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword ()));
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("register");
+        } else { // new user so we create user and send confirmation e-mail
 
-        // Set user to enabled
-        user.setEnabled(true);
+            // Disable user until they click on confirmation link in email
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-        // Save user
-        userService.save(user);
+            Role r1 = roleRepository.findByName("User");
 
-        modelAndView.addObject("successMessage", "Your password has been set!");
+            Set<Role> role = new HashSet<>();
+            role.add(r1);
+            user.setRoles(role);
+
+            userService.save(user);
+
+        }
         return modelAndView;
     }
-
 }

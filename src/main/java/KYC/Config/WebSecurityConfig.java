@@ -55,7 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll()
+                .permitAll();
+                http.headers().frameOptions().disable().and().csrf().disable()
                 //.and().exceptionHandling().accessDeniedPage("/403")
                 ;
 
