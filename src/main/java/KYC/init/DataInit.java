@@ -5,6 +5,7 @@
  */
 package KYC.init;
 
+import KYC.person.Client;
 import KYC.person.Person;
 import KYC.person.Role;
 import kyc.dao.PersonDAO;
@@ -14,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import kyc.dao.ClientRepository;
 import kyc.dao.RoleRepository;
 import kyc.dao.UserRepository;
  
@@ -36,6 +38,9 @@ public class DataInit implements ApplicationRunner {
 
     private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
+    @Autowired
+    private ClientRepository clientRepository;
+    
     @Autowired
     public DataInit(PersonDAO personDAO) {
         this.personDAO = personDAO;
@@ -62,8 +67,16 @@ public class DataInit implements ApplicationRunner {
             user1.setRoles(roles);
             user1.setUsername("Aoife");
             user1.setPassword("abc");
+            
+            Set<Client> clients = new HashSet();
+            Client client = new Client(); 
+            client.setClientname("abc.ltd");
+            client.setUsername("Aoife");
+            clientRepository.add(client);
+            client.setClients(clients);
+          
+            
             userService.save(user1);
-           
             p1.setFullName("John");
  
             Date d1 = df.parse("1980-12-20");

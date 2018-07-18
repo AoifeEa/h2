@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name = "user")
@@ -24,6 +25,7 @@ public class User {
     private String username;
 
     private Set<Role> roles;
+    private Set<Client> clients;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +33,18 @@ public class User {
     public Long getId() {
         return id;
     }
+    @OneToMany
+    @JoinTable(name = "user_client", joinColumns = @JoinColumn(name = "user_name"), inverseJoinColumns = @JoinColumn(name = "usser_name"))
+    public Set<Client> getClients() {
+        return clients;
+    }
 
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
+
+    
+    
     public void setId(long id) {
         this.id = id;
     }
@@ -54,6 +67,9 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+
+    
+
 
     public Set<Role> getRoles() {
         return roles;
