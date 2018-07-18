@@ -52,7 +52,7 @@ public class DataInit implements ApplicationRunner {
             Role r1 = new Role();
             Role r2 = new Role();
             r1.setName("Admin");
-            r2.setName("ROLE_User");
+            r2.setName("User");
             
             roleRepository.save(r1);
             roleRepository.save(r2);
