@@ -68,15 +68,27 @@ public class DataInit implements ApplicationRunner {
             user1.setUsername("Aoife");
             user1.setPassword("abc");
             
-            Set<Client> clients = new HashSet();
-            Client client = new Client(); 
+         userService.save(user1);
+         
+      Client client = new Client(); 
             client.setClientname("abc.ltd");
-            client.setUsername("Aoife");
-            clientRepository.add(client);
-            client.setClients(clients);
-          
+            client.setUser(user1);
+            Client client1 = new Client(); 
+            client1.setClientname("xyz.ltd");
+            client1.setUser(user1);
+            Client client2 = new Client(); 
+            client2.setClientname("123.ltd");
+            client2.setUser(user1);
             
-            userService.save(user1);
+            clientRepository.save(client);
+            clientRepository.save(client1);
+            clientRepository.save(client2);
+            
+         
+      
+            
+            
+            
             p1.setFullName("John");
  
             Date d1 = df.parse("1980-12-20");

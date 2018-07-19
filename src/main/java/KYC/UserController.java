@@ -11,6 +11,7 @@ import KYC.person.Client;
 import KYC.person.Role;
 import KYC.person.User;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -76,6 +77,18 @@ public class UserController {
     @ResponseBody
     public String currentUserName(Authentication authentication) {
         return "Name: " + authentication.getName() + " Permissions: " + authentication.getAuthorities().toString() + " athenticated: " + authentication.isAuthenticated();
+    }
+    
+    @RequestMapping(value = "/myclients", method = RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView currentUserName(ModelAndView modelAndView, Authentication authentication) {
+        User user =userRepository.findByUsername(authentication.getName());
+        List<Client> clients = clientService.findByuser_id(user);
+        modelAndView.setViewName("myclients");
+        modelAndView.addObject("clients", clients);
+        return modelAndView;
+        //return "Name: " + user.getUsername() + "Clients: "+clients.toString();
+//" Permissions: " + authentication.getAuthorities().toString() + " athenticated: " + authentication.isAuthenticated();
     }
 
     @Controller

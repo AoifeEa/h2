@@ -1,6 +1,8 @@
 package KYC.init;
 
 import KYC.person.Client;
+import KYC.person.User;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import kyc.dao.ClientRepository;
@@ -11,12 +13,19 @@ public class ClientServiceImpl implements ClientService {
     @Autowired
     private ClientRepository clientRepository;
     
-    public void add(Client client) { //should this just be save instead of saveUser
-        clientRepository.add(client);
+        @Override
+    public void add(Client client) {
+           clientRepository.save(client);
     }
 
     @Override
     public Client findByClientname(String clientname) {
         return clientRepository.findByClientname(clientname);
+    }
+
+
+    @Override
+    public List<Client> findByuser_id(User user) {
+     return clientRepository.findAllByuser_id(user.getId());
     }
 }

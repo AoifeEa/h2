@@ -1,36 +1,34 @@
 /*
  * https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
+
+ * mapping ref: https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
+ * @ 19th July 2018 
  */
 package KYC.person;
 
-import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 
 @Entity
 @Table(name = "clients")
 public class Client {
-        private String username;
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+     
     private Long clientId;
     
-    @OneToMany
-    @JoinTable(name = "client_name", joinColumns = @JoinColumn(name = "client_id"), inverseJoinColumns = @JoinColumn(name = "client_id"))
-    // check if these are required??
-
-    private String clientname;
-    private Set<Client> client;
-
+   private String clientname;
+ 
+ @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+ 
     public Long getClientId() {
         return clientId;
     }
@@ -47,19 +45,16 @@ public class Client {
         this.clientname = clientname;
     }
 
-     public String getUsername() {
-        return username;
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    public User getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    
-    public Set<Client> getClients(){
-        return client;
-    }
-
-    public void setClients(Set<Client> clients) {
-        this.client = clients;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
