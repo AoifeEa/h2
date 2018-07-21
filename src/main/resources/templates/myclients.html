@@ -1,8 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-     <title>KYC Buddy</title>
-    <div th:replace="fragments/header :: header-css"/>
+    <title>KYC Buddy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<div th:replace="fragments/header :: header-css"/>
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -10,18 +15,32 @@
 
 <div class="container">
 
-    <div class="starter-template">
-        <h1>My clients</h1>
 
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <h1 th:inline="text"> [[${#httpServletRequest.remoteUser}]]'s Client list!</h1>
         
-        <table>
+        <table><table class="table table-bordered">
+                 <thead>
+                     <tr>
+                         <th>ClientID</th>
+                         <th>Clientname</th>
+
+                     </tr>
+                 </thead>
+                 <tbody>
             <tr th:each="client : ${clients}">
                 <td th:text="${client.clientId}">Id</td>
                 <td th:text="${client.clientname}">Name</td>
             </tr>
+    </tbody>
+            </table>
  </div>
-        <form th:action="@{/logout}" method="post">
+<div>
+    <form th:action="@{/addclient}" method="post">
+            <input type="submit" value="Add New Client"/>
+        </form>  
+</div>
+
+<form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>  
     </div>

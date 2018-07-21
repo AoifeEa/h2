@@ -32,7 +32,6 @@ public class DataInit implements ApplicationRunner {
     @Autowired
     private UserService userService;
 
-    private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
     @Autowired
     private ClientRepository clientRepository;

@@ -9,7 +9,6 @@ public interface ClientService {
 
     void add(Client client);
     
-    
     Client findByClientname(String clientname);
     List<Client> findByuser_id(User user);
     
