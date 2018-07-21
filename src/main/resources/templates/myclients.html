@@ -14,25 +14,21 @@
         <h1>My clients</h1>
 
         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        
+        <table>
+            <tr th:each="client : ${clients}">
+                <td th:text="${client.clientId}">Id</td>
+                <td th:text="${client.clientname}">Name</td>
+            </tr>
+ </div>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
-        </form>
-
-        
-            <table>
-                <tr th:each="client : ${clients}">
-                    <td th:text="${client.clientId}">Id</td>
-                    <td th:text="${client.clientname}">Name</td>
-                </tr>
-            </table>
-            
-        <div>
-           <h2> Visit <a th:href="@{/about}">About page</a></h2>
-            <h2> Visit <a th:href="@{/home}">Home page</a></h2>
-        </div>
+        </form>  
     </div>
+        </table>
 
-</div>
+
+   
 <!-- /.container -->
 
 <div th:replace="fragments/footer :: footer"/>

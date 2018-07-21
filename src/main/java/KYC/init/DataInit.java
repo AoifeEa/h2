@@ -6,13 +6,10 @@
 package KYC.init;
 
 import KYC.person.Client;
-import KYC.person.Person;
 import KYC.person.Role;
-import kyc.dao.PersonDAO;
 import KYC.person.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import kyc.dao.ClientRepository;
@@ -31,7 +28,6 @@ public class DataInit implements ApplicationRunner {
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
-    private PersonDAO personDAO;
  
     @Autowired
     private UserService userService;
@@ -41,18 +37,12 @@ public class DataInit implements ApplicationRunner {
     @Autowired
     private ClientRepository clientRepository;
     
-    @Autowired
-    public DataInit(PersonDAO personDAO) {
-        this.personDAO = personDAO;
-    }
     
  
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        long count = personDAO.count();
- 
-        if (count == 0) {
-            Person p1 = new Person();
+         int count = 0;
+         if (count == 0) {
             User user1 = new User();
             Role r1 = new Role();
             Role r2 = new Role();
@@ -85,23 +75,6 @@ public class DataInit implements ApplicationRunner {
             clientRepository.save(client2);
             
          
-      
-            
-            
-            
-            p1.setFullName("John");
- 
-            Date d1 = df.parse("1980-12-20");
-            p1.setDateOfBirth(d1);
-            //
-            Person p2 = new Person();
- 
-            p2.setFullName("Smith");
-            Date d2 = df.parse("1985-11-11");
-            p2.setDateOfBirth(d2);
- 
-            personDAO.save(p1);
-            personDAO.save(p2);
         }
  
     }

@@ -1,11 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+     <title>KYC Buddy</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
     <body>
         <div> You have registered</div>
+        <div> 
+                 <h2> Now you can sign in as a User!  <a th:href="@{/login}"> Login </a></h2>
+        </div>
+
     </body>
 </html>
