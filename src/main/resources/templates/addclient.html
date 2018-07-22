@@ -24,7 +24,7 @@
       <h4>New Client Registration</h4>
 
       <form autocomplete="off" action="#" th:action="@{/addclient}"
-        th:object="${user}" method="post" class="m-t" role="form"
+        th:object="${client}" method="post" class="m-t" role="form"
         data-toggle="validator">
 
         <div th:if="${confirmationMessage}" class="alert alert-success"

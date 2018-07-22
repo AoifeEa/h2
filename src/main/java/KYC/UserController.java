@@ -83,19 +83,7 @@ public class UserController {
         modelAndView.addObject("clients", clients);
         return modelAndView;
      }
-      // Return registration form template
-        @RequestMapping(value = "/addclient", method = RequestMethod.GET)
-        public ModelAndView showAddClientPage
-        (ModelAndView modelAndView, Client client
-        
-            ) 
-        {
-            modelAndView.addObject("client", client);
-            modelAndView.setViewName("addclient");
-            return modelAndView;
-        }
-     
-     
+          
      }
 
     
