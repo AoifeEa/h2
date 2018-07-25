@@ -53,7 +53,7 @@ public class RegisterController {
         
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("register");
-        } else { // new user so we create user and send confirmation e-mail
+        } else { // new user so we create user with default role of "user"
 
             Role r1 = roleRepository.findByName("User");
             

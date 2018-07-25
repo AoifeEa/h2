@@ -6,29 +6,18 @@
 */
 package KYC.Config;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {    
-   @Autowired
-   private UserDetailsService userDetailsService;
-    
-    
-//    @Autowired
-//    private AccessDeniedHandler accessDeniedHandler;
-//    ***is this segment required?
+  
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
@@ -44,8 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/webjars/**","/index","/", "/home", "/about", "/h2-console/*").permitAll()
                    //potentially to be added to ^
-                .antMatchers("/admin/**").hasAnyAuthority("Admin","User")
-                .antMatchers("/user/**").hasAuthority("User")
+                .antMatchers("/admin/**").hasAnyAuthority("Admin")
+                .antMatchers("/user/**").hasAnyAuthority("User","Admin")
                 .antMatchers("/register").permitAll() //may need to be altered??
                 .antMatchers("/confirm").permitAll()
                 .anyRequest().authenticated()
@@ -55,18 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
-                http.headers().frameOptions().disable().and().csrf().disable()
-                //.and().exceptionHandling().accessDeniedPage("/403")
-                ;
-
-                //.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
-    }
-
-    // create two users, admin and user
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
-   
+                .permitAll().and().exceptionHandling().accessDeniedPage("/403");
+                http.headers().frameOptions().disable().and().csrf().disable(); //only temporariy here to allow access to the H2 console. 
     }
 }

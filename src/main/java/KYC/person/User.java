@@ -62,6 +62,4 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
-    // check if these are required??
 }
