@@ -23,6 +23,9 @@
                      <tr>
                          <th>ClientID</th>
                          <th>Clientname</th>
+                         <th>Clienttype</th>
+                         <th>Country</th>
+
 
                      </tr>
                  </thead>
@@ -30,6 +33,8 @@
             <tr th:each="client : ${clients}">
                 <td th:text="${client.clientId}">Id</td>
                 <td th:text="${client.clientname}">Name</td>
+                <td th:text="${client.clienttype}">Type</td>
+                <td th:text="${client.country}">Country</td>
             </tr>
     </tbody>
             </table>

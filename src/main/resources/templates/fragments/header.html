@@ -41,11 +41,9 @@ and open the template in the editor.
 
                 <ul class="nav navbar-nav mr-auto">
 
-                    <li th:classappend="${module == 'home' ? 'active' : ''}">
-                        <a href="#" th:href="@{/}">Home</a>
-                    </li>
+                    
                     <li th:classappend="${module == 'about' ? 'active' : ''}">
-                        <a href="#" th:href="@{/about}">about</a>
+                        <a href="#" th:href="@{/about}">About</a>
                     </li>
                     <li th:classappend="${module == 'login' ? 'active' : ''}">
                         <a href="#" th:href="@{/user}"> User Login</a>

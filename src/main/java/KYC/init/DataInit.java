@@ -53,12 +53,18 @@ public class DataInit implements ApplicationRunner {
 
             Client client = new Client();
             client.setClientname("abc.ltd");
+            client.setClienttype("Standard Ltd");
+            client.setCountry("USA");
             client.setUser(user1);
             Client client1 = new Client();
             client1.setClientname("xyz.ltd");
+            client.setClienttype("Limited");
+            client.setCountry("UK");
             client1.setUser(user1);
             Client client2 = new Client();
             client2.setClientname("123.ltd");
+            client.setClienttype("Sub of Listed");
+            client.setCountry("Ireland");
             client2.setUser(user1);
 
             clientService.add(client);

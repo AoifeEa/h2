@@ -53,6 +53,36 @@
           <span class="glyphicon form-control-feedback"
             aria-hidden="true"></span>
         </div>
+          
+         <div class="form-group input-group has-feedback">
+          <label th:if="${#fields.hasErrors('clienttype')}"
+            th:errors="*{clienttype}" class="validation-message"></label>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          
+          <input type="text" th:field="*{clienttype}"
+            placeholder="clienttype" class="form-control" required />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+          
+          <div class="form-group input-group has-feedback">
+          <label th:if="${#fields.hasErrors('country')}"
+            th:errors="*{country}" class="validation-message"></label>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          
+          <input type="text" th:field="*{country}"
+            placeholder="country" class="form-control" required />
+          <span class="glyphicon form-control-feedback"
+            aria-hidden="true"></span>
+        </div>
+          
+          
+          
+
 
        
 

@@ -25,6 +25,10 @@ public class Client {
     private Long clientId;
     
    private String clientname;
+   
+   private String clienttype;
+   
+   private String country;
  
  @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,6 +48,22 @@ public class Client {
     public void setClientname(String clientname) {
         this.clientname = clientname;
     }
+    
+     public String getClienttype(){
+        return clienttype;
+    }
+    public void setClienttype(String clienttype){
+        this.clienttype = clienttype;
+    }
+    
+     public String getCountry(){
+        return country;
+    }
+    public void setCountry(String country){
+        this.country = country;
+    }
+    
+   
 
     private User user;
 
