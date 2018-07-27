@@ -45,10 +45,8 @@ and open the template in the editor.
                     <li th:classappend="${module == 'about' ? 'active' : ''}">
                         <a href="#" th:href="@{/about}">About</a>
                     </li>
-                    <li th:classappend="${module == 'login' ? 'active' : ''}">
-                        <a href="#" th:href="@{/user}"> User Login</a>
-                    <li th:classappend="${module == 'about' ? 'active' : ''}">
-                        <a href="#" th:href="@{/admin}">Admin Login</a>
+                                        <li th:classappend="${module == 'about' ? 'active' : ''}">
+                        <a href="#" th:href="@{/myclients}">MyClients</a>
                     </li>
                     <li th:classappend="${module == 'register' ? 'active' : ''}">
                         <a href="#" th:href="@{/register}">Register</a>

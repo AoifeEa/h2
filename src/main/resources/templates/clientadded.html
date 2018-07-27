@@ -9,9 +9,20 @@
 <body>
 
 <div th:replace="fragments/header :: header"/>
-        <div> <h1>A new client has now been added</h1></div>
-        <div> 
-                 <h2> Return to your Clients list  <a th:href="@{/myclients}"> MyClients </a></h2>
-        </div>
-    </body>
-</html>
+<div> <h1>A new client has now been added</h1></div>
+    <div> 
+        <h2> Choose an option below </h2>
+        <form th:action="@{/addclient}" method="get">
+            <input type="submit" value="Add Another Client"/>
+        </form>  
+        <form th:action="@{/myclients}" method="get">
+            <input type="submit" value="My Clients List"/>
+        </form>  
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>  
+    </div>
+
+</div>
+      </body>
+      </html>

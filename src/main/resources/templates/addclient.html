@@ -3,20 +3,16 @@
   xmlns:th="http://www.thymeleaf.org">
 
 <head>
+   <title>KYC Buddy New Client</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <div th:replace="fragments/header :: header-css"/>
  
-
-  <title>Add New Client</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-  crossorigin="anonymous" />
-
-  <link th:href="@{css/style.css}" rel="stylesheet" />
 </head>
 
-<body class="gray-bg">
+<body>
+    <div th:replace="fragments/header :: header"/>
+
 
   <div class="middle-box text-center loginscreen animated fadeInDown">
     <div>
@@ -80,12 +76,6 @@
             aria-hidden="true"></span>
         </div>
           
-          
-          
-
-
-       
-
         <button type="submit"
           class="btn btn-primary block full-width m-b">Add</button>
 
@@ -93,23 +83,7 @@
      
     </div>
   </div>
-
- <!-- jQuery-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    
-  <!-- Bootstrap -->
-  <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-
-  <!-- Bootstrap Validator plugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-
-  <div>
-                             <h2> Return to Home page <a th:href="@{/home}">  here </a></h2>
-
-      
+     
   </div>
 </body>
 

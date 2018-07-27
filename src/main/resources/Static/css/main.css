@@ -4,11 +4,15 @@ body {
 
 h1{
 	color:#CEF6F5;
+        font-family: Arial, serif;
 }
 
 h2{
 	color:#0404B4;
+        font-family: Arial, serif;
 }
+
+
 
 body { 
     padding-top: 65px; 
@@ -16,4 +20,5 @@ body {
 
 footer{
     margin-top:60px;
+   
 }

@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/webjars/**","/index","/", "/home", "/about", "/h2-console/*").permitAll()
                    //potentially to be added to ^
                 .antMatchers("/admin/**").hasAnyAuthority("Admin")
-                .antMatchers("/user/**").hasAnyAuthority("User","Admin")
+                .antMatchers("/user/**", "/myclients").hasAnyAuthority("User","Admin")
                 .antMatchers("/register").permitAll() //may need to be altered??
                 .antMatchers("/confirm").permitAll()
                 .anyRequest().authenticated()
