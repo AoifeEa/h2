@@ -10,7 +10,7 @@ import KYC.person.Role;
 import KYC.person.User;
 import java.util.HashSet;
 import java.util.Set;
-import kyc.dao.RoleRepository;
+import KYC.dao.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

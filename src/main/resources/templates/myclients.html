@@ -1,58 +1,47 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>KYC Buddy</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<div th:replace="fragments/header :: header-css"/>
-<href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>KYC Buddy</title>
 
-<div th:replace="fragments/header :: header"/>
 
-<div class="container">
+        <div th:replace="fragments/header :: header-css"/>
 
-      <h1 th:inline="text"> [[${#httpServletRequest.remoteUser}]]'s Client list!</h1>
-        
-        <table><table class="table table-bordered">
-                 <thead>
-                     <tr>
-                         <th>ClientID</th>
-                         <th>Clientname</th>
-                         <th>Clienttype</th>
-                         <th>Country</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-            <tr th:each="client : ${clients}">
-                <td th:text="${client.clientId}">Id</td>
-                <td th:text="${client.clientname}">Name</td>
-                <td th:text="${client.clienttype}">Type</td>
-                <td th:text="${client.country}">Country</td>
-            </tr>
-    </tbody>
+    </head>
+    <body>
+
+        <div th:replace="fragments/header :: header"/>
+
+        <div class="container">
+            <h1 th:inline="text">[[${#httpServletRequest.remoteUser}]]'s
+                Client list!</h1>
+
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Client name</th>
+                        <th scope="col">Client type</th>
+                        <th scope="col">Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="client : ${clients}">
+                        <td th:text="${client.clientname}">Name</td>
+                        <td th:text="${client.clienttype}">Type</td>
+                        <td th:text="${client.country}">Country</td>
+                    </tr>
+                </tbody>
             </table>
- </div>
-<div>
-    <form th:action="@{/addclient}" method="get">
-            <input type="submit" value="Add New Client"/>
-        </form>  
-</div>
+        </div>
 
-<form th:action="@{/logout}" method="post">
+        <div>
+            <form th:action="@{/addclient}" method="get">
+                <input type="submit" value="Add New Client"/>
+            </form>  
+        </div>
+
+        <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
-        </form>  
-    </div>
-        </table>
-
-
-   
-<!-- /.container -->
-
-<div th:replace="fragments/footer :: footer"/>
-
-</body>
+        </form>                          
+        <div th:replace="fragments/footer :: footer"/>
+    </body>
 </html>

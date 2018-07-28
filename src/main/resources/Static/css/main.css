@@ -1,24 +1,12 @@
 body {
     background-color: powderblue;
+    padding-top: 4.5rem;
 }
 
 h1{
-	color:#CEF6F5;
-        font-family: Arial, serif;
+    color:#CEF6F5;
 }
 
 h2{
-	color:#0404B4;
-        font-family: Arial, serif;
-}
-
-
-
-body { 
-    padding-top: 65px; 
-}
-
-footer{
-    margin-top:60px;
-   
+    color:#0404B4;
 }

@@ -5,7 +5,7 @@ import KYC.person.User;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import kyc.dao.ClientRepository;
+import KYC.dao.ClientRepository;
 
 @Service
 public class ClientServiceImpl implements ClientService {

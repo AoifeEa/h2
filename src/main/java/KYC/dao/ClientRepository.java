@@ -1,4 +1,4 @@
-package kyc.dao;
+package KYC.dao;
 
 import KYC.person.Client;
 import java.util.List;

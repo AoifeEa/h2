@@ -1,8 +1,8 @@
 
 package KYC.init;
 
-import kyc.dao.RoleRepository;
-import kyc.dao.UserRepository;
+import KYC.dao.RoleRepository;
+import KYC.dao.UserRepository;
 import KYC.person.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

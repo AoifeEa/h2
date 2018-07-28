@@ -1,90 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-   <title>KYC Buddy New Client</title>
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-      <div th:replace="fragments/header :: header-css"/>
- 
-</head>
+    <head>
+        <title>KYC Buddy New Client</title>
+        <div th:replace="fragments/header :: header-css"/>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+        <div class="container">
+            <div class="row">
+                <div
+                    class="col-xs-12 col-sm-8 col-md-6 mx-auto">
+                    <h1>New Client Registration</h1>
 
-<body>
-    <div th:replace="fragments/header :: header"/>
+                    <form autocomplete="off" action="#" th:action="@{/addclient}"
+                          th:object="${client}" method="post" class="m-t" role="form"
+                          data-toggle="validator">
 
+                        <div th:if="${confirmationMessage}" class="alert alert-success"
+                             role="alert" th:text=${confirmationMessage}></div>
 
-  <div class="middle-box text-center loginscreen animated fadeInDown">
-    <div>
-      
-      <h4>New Client Registration</h4>
+                        <div th:if="${errorMessage}" class="alert alert-danger"
+                             role="alert" th:text="${errorMessage}"></div>
 
-      <form autocomplete="off" action="#" th:action="@{/addclient}"
-        th:object="${client}" method="post" class="m-t" role="form"
-        data-toggle="validator">
+                        <div th:if="${#fields.hasErrors('clientname')}"
+                             th:errors="*{clientname}"
+                             class="validation-message alert alert-danger" role="alert"></div>
 
-        <div th:if="${confirmationMessage}" class="alert alert-success"
-          role="alert" th:text=${confirmationMessage}></div>
+                        <div class="form-group input-group has-feedback">
+                            <label th:if="${#fields.hasErrors('clientname')}"
+                                   th:errors="*{clientname}" class="validation-message"></label> <span
+                                   class="input-group-addon"> <span
+                                    class="glyphicon glyphicon-user"></span>
+                            </span> <input type="text" th:field="*{clientname}"
+                                           placeholder="Client Name" class="form-control" required /> <span
+                                           class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
 
-        <div th:if="${errorMessage}"
-          class="alert alert-danger" role="alert"
-          th:text="${errorMessage}"></div>
+                        <div class="form-group input-group has-feedback">
+                            <label th:if="${#fields.hasErrors('clienttype')}"
+                                   th:errors="*{clienttype}" class="validation-message"></label> <span
+                                   class="input-group-addon"> <span
+                                    class="glyphicon glyphicon-user"></span>
+                            </span> <input type="text" th:field="*{clienttype}"
+                                           placeholder="Client Type" class="form-control" required /> <span
+                                           class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
 
+                        <div class="form-group input-group has-feedback">
+                            <label th:if="${#fields.hasErrors('country')}"
+                                   th:errors="*{country}" class="validation-message"></label> <span
+                                   class="input-group-addon"> <span
+                                    class="glyphicon glyphicon-user"></span>
+                            </span> <input type="text" th:field="*{country}" placeholder="country"
+                                           class="form-control" required /> <span
+                                           class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
 
-        <div th:if="${#fields.hasErrors('clientname')}"
-          th:errors="*{clientname}"
-          class="validation-message alert alert-danger" role="alert"></div>
-
-       
-
-        <div class="form-group input-group has-feedback">
-          <label th:if="${#fields.hasErrors('clientname')}"
-            th:errors="*{clientname}" class="validation-message"></label>
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-user"></span>
-          </span>
-          
-          <input type="text" th:field="*{clientname}"
-            placeholder="clientname" class="form-control" required />
-          <span class="glyphicon form-control-feedback"
-            aria-hidden="true"></span>
-        </div>
-          
-         <div class="form-group input-group has-feedback">
-          <label th:if="${#fields.hasErrors('clienttype')}"
-            th:errors="*{clienttype}" class="validation-message"></label>
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-user"></span>
-          </span>
-          
-          <input type="text" th:field="*{clienttype}"
-            placeholder="clienttype" class="form-control" required />
-          <span class="glyphicon form-control-feedback"
-            aria-hidden="true"></span>
-        </div>
-          
-          <div class="form-group input-group has-feedback">
-          <label th:if="${#fields.hasErrors('country')}"
-            th:errors="*{country}" class="validation-message"></label>
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-user"></span>
-          </span>
-          
-          <input type="text" th:field="*{country}"
-            placeholder="country" class="form-control" required />
-          <span class="glyphicon form-control-feedback"
-            aria-hidden="true"></span>
-        </div>
-          
-        <button type="submit"
-          class="btn btn-primary block full-width m-b">Add</button>
-
-      </form>
-     
-    </div>
-  </div>
-     
-  </div>
-</body>
+                        <button type="submit" class="btn btn-primary block full-width m-b">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>    
+        <div th:replace="fragments/footer :: footer"/>
+    </body>
 
 </html>

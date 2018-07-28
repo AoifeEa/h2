@@ -5,7 +5,7 @@ https://hellokoding.com/registration-and-login-example-with-spring-security-spri
 
 package KYC.init;
 
-import kyc.dao.UserRepository;
+import KYC.dao.UserRepository;
 import KYC.person.Role;
 import KYC.person.User;
 import org.springframework.beans.factory.annotation.Autowired;

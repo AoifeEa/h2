@@ -1,28 +1,23 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-     <title>KYC Buddy</title>
-     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-      <div th:replace="fragments/header :: header-css"/>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>KYC Buddy</title>
+        <div th:replace="fragments/header :: header-css"/>
+    </head>
+    <body>
 
-<div th:replace="fragments/header :: header"/>
+        <div th:replace="fragments/header :: header"/>
 
-<div class="container">
+        <div class="container">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <div class="template">
+                <h1>KYC Buddy</h1>
+                <h2>Information about what kyc buddy is.................................</h2>
+                <h2>All the information </h2>
+            </div>
+        </div>
 
-<div class="template">
-        <h1>KYC Buddy</h1>
-        <h2>Information about what kyc buddy is.................................</h2>
-        <h2>All the information </h2>
-    </div>
-</div>
-<!-- /.container -->
+        <div th:replace="fragments/footer :: footer"/>
 
-<div th:replace="fragments/footer :: footer"/>
-
-</body>
+    </body>
 </html>

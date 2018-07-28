@@ -1,64 +1,36 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <!-- Ref: http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/
+     Ref: https://getbootstrap.com/docs/4.0/examples/navbar-fixed/
 -->
 
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+    <head>
     <div th:fragment="header-css">
-        <!-- this is header-css -->
         <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-        <link rel="stylesheet" type="text/css"
-              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-        <link rel="stylesheet" th:href="@{/css/main.css}"
-              href="../../css/main.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.1.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
     </div>
-
 </head>
 <body>
-<div th:fragment="header">
-    <!-- this is header -->
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-
-        <div class="container">
-            <div class="navbar-header">
-                     <a class="navbar-brand" th:href="@{/}">KYC Buddy</a>
-
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>              
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-
-                <ul class="nav navbar-nav mr-auto">
-
-                    
-                    <li th:classappend="${module == 'about' ? 'active' : ''}">
-                        <a href="#" th:href="@{/about}">About</a>
-                    </li>
-                                        <li th:classappend="${module == 'about' ? 'active' : ''}">
-                        <a href="#" th:href="@{/myclients}">MyClients</a>
-                    </li>
-                    <li th:classappend="${module == 'register' ? 'active' : ''}">
-                        <a href="#" th:href="@{/register}">Register</a>
-
-                    </li>
-                    </li>
-            
-          </ul>
-                    </div>
-                  
-            </div>
+    <nav th:fragment="header" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <a class="navbar-brand" th:href="@{/}">KYC Buddy</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/myclients}"> My Clients</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/register}">Register</a>
+                </li>
+            </ul>
         </div>
-</nav>
+    </nav>
 </body>
 </html>
