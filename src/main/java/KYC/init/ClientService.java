@@ -11,5 +11,7 @@ public interface ClientService {
     
     Client findByClientname(String clientname);
     List<Client> findByuser_id(User user);
+
+    List<Client> findAll();
     
 }

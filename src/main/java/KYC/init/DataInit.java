@@ -70,6 +70,32 @@ public class DataInit implements ApplicationRunner {
             clientService.add(client);
             clientService.add(client1);
             clientService.add(client2);
+            
+           
+           //user only example 
+           Set<Role> roles1 = new HashSet();
+            User user2 = new User();
+            roles1.add(r2);
+            user2.setRoles(roles1);
+            user2.setUsername("Dave");
+            user2.setPassword("123");
+
+            userService.save(user2);
+
+            Client client4 = new Client();
+            client4.setClientname("Tom Murphy");
+            client4.setClienttype("Private Individual");
+            client4.setCountry("Ireland");
+            client4.setUser(user2);
+            Client client5 = new Client();
+            client5.setClientname("Bob Limited");
+            client5.setClienttype("Limited");
+            client5.setCountry("UK");
+            client5.setUser(user2);
+            
+            clientService.add(client4);
+            clientService.add(client5);
+            
         }
     }
 }

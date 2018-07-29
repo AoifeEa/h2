@@ -59,12 +59,18 @@ public class ClientController {
         return modelAndView;
     }
 
-    //User Controller segment
-    @RequestMapping(value = "/myclients", method = RequestMethod.GET)
+   @RequestMapping(value = "/myclients", method = RequestMethod.GET)
     public ModelAndView currentUserName(ModelAndView modelAndView, Authentication authentication) {
-        User user = userService.findByUsername(authentication.getName());
-        List<Client> clients = clientService.findByuser_id(user);
         modelAndView.setViewName("myclients");
+
+        if (!authentication.getAuthorities().toString().contains("Admin")) {
+            User user = userService.findByUsername(authentication.getName());
+            List<Client> clients = clientService.findByuser_id(user);
+
+            modelAndView.addObject("clients", clients);
+            return modelAndView;
+        }
+        List<Client> clients = clientService.findAll();
         modelAndView.addObject("clients", clients);
         return modelAndView;
     }

@@ -28,4 +28,9 @@ public class ClientServiceImpl implements ClientService {
     public List<Client> findByuser_id(User user) {
      return clientRepository.findAllByuser_id(user.getId());
     }
+
+    @Override
+    public List<Client> findAll() {
+        return clientRepository.findAll();
+        }
 }
