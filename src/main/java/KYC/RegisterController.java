@@ -40,7 +40,7 @@ public class RegisterController {
 
     // Process form input data
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid User user, BindingResult bindingResult, HttpServletRequest request) {
+    public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid User user, BindingResult bindingResult) {
 
         // Lookup user 
         User userExists = userService.findByUsername(user.getUsername());

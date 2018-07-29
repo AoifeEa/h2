@@ -9,62 +9,88 @@
         <div th:replace="fragments/header :: header"/>
 
         <div class="container">
-
-            <div class="template">
-                <h1> AML Requirements </h1>
-                <h2>List of common Entities & their respective general requirements</h2>
-                <h4>Private Clients / Individuals: </h4>
-                <h6> <li>A certified copy of photographic proof of Identification , i.e. Drivers License, Passport.</li>
-                    <li> A certified copy of residential proof of address , i.e. utility bill, Revenue letter. 
-                        (must be dated within 6 months for financial institutions & 12 months for legal institutions)</li>
-                </h6>
-
-                <h4>Limited Company /  Designated Activity Company (DAC) / Standard company: </h4>
-                <h6> <li>A certificate of Incorporation/Proof of Registration</li>
-                    <li> A certified list of Directors</li>
-                    <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of a director. 
-                        (1 required for legal/accountancy firms, 2 for financial firms</li>
-                    <li> Documentation showing the beneficial & controlling ownership of the company - this can be by way of a copy of the members register,
-                        certified structure chart with shareholding percentages, up to date annual report/quarterly report along with confirmation from In-House Council</li>
-                    <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of each individual who owns 25% or more in the company</li>
-                </h6>
-
-                 <h4>Regulated Entity </h4>
-                 <h6> <li>Confirmation from a regulated body as proof of regulation</li></h6>
-
-                 <h4>Subsidiary of a Regulated Entity: </h4>
-                     <h6> <li>A certificate of Incorporation</li>
-                          <li> A certified list of Directors</li>
-                          <li> Documentation showing the beneficial ownership of the company - this can be by way of a copy of the members register,
+            <div class ="row">
+                <div class=" col-9 template">
+                    <h1> AML Requirements </h1>
+                    <h2>List of common Entities & their respective general requirements</h2>
+                    <p> <h4>Listed Entity </h4>
+                        <h6> <li> Copy of the companies listing on a known stock exchange i.e. print out from Reuters, NYSE, etc </li>
+                            <li> A list of Directors</li>
+                        </h6>
+                    </p>
+                    <p>
+                        <h4>Subsidiary of a Listed Entity: </h4>
+                        <h6> <li>A certificate of Incorporation</li>
+                            <li> A certified list of Directors</li>
+                            <li> Documentation showing the beneficial ownership of the company - this can be by way of a copy of the members register,
+                                certified structure chart with shareholding percentages, up to date annual report/quarterly report along with confirmation from In-House Council</li>                                 
+                            <li> Copy of the companies listing on a known stock exchange i.e. print out from Reuters, NYSE, etc </li>           
+                        </h6>
+                    </p>
+                    <p>
+                        <h4>Regulated Entity </h4>
+                        <h6> <li>Confirmation from a regulated body as proof of regulation</li></h6>
+                    </p>
+                    <p>
+                        <h4>Subsidiary of a Regulated Entity: </h4>
+                        <h6> <li>A certificate of Incorporation</li>
+                            <li> A certified list of Directors</li>
+                            <li> Documentation showing the beneficial ownership of the company - this can be by way of a copy of the members register,
                                 certified structure chart with shareholding percentages, up to date annual report/quarterly report along with confirmation from In-House Council</li>
-                          <li>Confirmation from a regulated body as proof of regulation</li>
-                     </h6>
+                            <li>Confirmation from a regulated body as proof of regulation</li>
+                        </h6>
+                    </p>
+                    <p>
+                        <h4>Limited Company /  Designated Activity Company (DAC) / Standard company: </h4>
+                        <h6> <li>A certificate of Incorporation/Proof of Registration</li>
+                            <li> A certified list of Directors</li>
+                            <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of a director. 
+                                (1 required for legal/accountancy firms, 2 for financial firms</li>
+                            <li> Documentation showing the beneficial & controlling ownership of the company - this can be by way of a copy of the members register,
+                                certified structure chart with shareholding percentages, up to date annual report/quarterly report along with confirmation from In-House Council</li>
+                            <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of each individual who owns 25% or more in the company</li>
+                        </h6>
+                    </p>
 
-
-                 <h4>Partnership: </h4>
-                     <h6> <li>A certificate of Incorporation</li>
-                          <li> A certified list of Partners</li>
-                          <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of a partner. 
+                    <p>
+                        <h4>Partnership: </h4>
+                        <h6> <li>A certificate of Incorporation</li>
+                            <li> A certified list of Partners</li>
+                            <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of a partner. 
                                 (1 required for legal/accountancy firms, all partners required for financial firms</li>
-                          <li> Documentation showing the beneficial & controlling ownership of the partnership - this can be by way of a copy of the members register,
+                            <li> Documentation showing the beneficial & controlling ownership of the partnership - this can be by way of a copy of the members register,
                                 certified structure chart with shareholding percentages, up to date annual report/quarterly report along with confirmation from In-House Council</li>
-                          <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of each individual who owns 25% or more in the company</li>
-                     </h6>
-                 
-                 <h4>Listed Entity </h4>
-                    <h6> <li> Copy of the companies listing on a known stock exchange i.e. print out from Reuters, NYSE, etc </li>
-                         <li> A list of Directors</li>
-                    </h6>
-                         
-                 <h4>Subsidiary of a Listed Entity: </h4>
-                     <h6> <li>A certificate of Incorporation</li>
-                          <li> A certified list of Directors</li>
-                          <li> Documentation showing the beneficial ownership of the company - this can be by way of a copy of the members register,
-                               certified structure chart with shareholding percentages, up to date annual report/quarterly report along with confirmation from In-House Council</li>                                 
-                          <li> Copy of the companies listing on a known stock exchange i.e. print out from Reuters, NYSE, etc </li>           
-                    </h6>
+                            <li>A certified copy of photographic proof of ID & A certified copy of residential proof of address of each individual who owns 25% or more in the company</li>
+                        </h6>
+                    </p>
 
-               </div>
+                    <p><h4>Private Clients / Individuals: </h4>
+                        <h6> <li>A certified copy of photographic proof of Identification , i.e. Drivers License, Passport.</li>
+                            <li> A certified copy of residential proof of address , i.e. utility bill, Revenue letter. 
+                                (must be dated within 6 months for financial institutions & 12 months for legal institutions)</li>
+                        </h6>
+                    </p>
+
+
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-2" id="try1">
+                    <h2>Links</h2>
+                    <p><h6>Check for Listed Entities: <a href="https://www.reuters.com/">Reuters</a> </h6>
+                    </p>
+                    <p><h6>Irish Regulated Entities: <a href="http://registers.centralbank.ie/">Central Bank</a> </h6>
+                    </p>
+                    <p><h6>English Regulated Entities: <a href="https://register.fca.org.uk/">FCA</a> </h6>
+                    </p>
+                     <p><h6>Check for Irish Entities documents - Cert. of Incorp., List of Directors & some Annual reports (Requires account): <a href="https://search4less.com/">Search4less</a> </h6>
+                    </p>
+                     <p><h6>Check for UK Entities documents - Cert. of Incorp., List of Directors & some Annual reports: <a href="https://beta.companieshouse.gov.uk/">Companies House</a> </h6>
+                    </p>
+                    
+                    
+                </div>
+            </div>
         </div>
 
         <div th:replace="fragments/footer :: footer"/>
