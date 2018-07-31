@@ -1,5 +1,6 @@
 package KYC;
 
+import KYC.dao.DBFileRepository;
 import KYC.person.Client;
 import KYC.init.ClientService;
 import KYC.init.UserService;
@@ -23,7 +24,7 @@ public class ClientController {
 
     @Autowired
     private ClientService clientService;
-
+    
     // Return registration form template
     @RequestMapping(value = "/addclient", method = RequestMethod.GET)
     public ModelAndView showAddClientPage(ModelAndView modelAndView, Client client) {
@@ -66,7 +67,7 @@ public class ClientController {
         if (!authentication.getAuthorities().toString().contains("Admin")) {
             User user = userService.findByUsername(authentication.getName());
             List<Client> clients = clientService.findByuser_id(user);
-
+            
             modelAndView.addObject("clients", clients);
             return modelAndView;
         }

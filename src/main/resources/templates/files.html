@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>KYC Buddy</title>
+        <div th:replace="fragments/header :: header-css"/>
+    </head>
+    <body>
+
+        <div th:replace="fragments/header :: header"/>
+
+        <div class="container">
+            <div th:each="client : ${clients}" class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="lead" th:text="${client.clientname}">List of Documents </span></div>
+                <div class="tablecontainer">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>File Category.</th>
+                                <th>File Name</th>
+                                <th>Type</th>
+                                <th width="100"></th>
+                                <th width="100"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="DBFile : ${client.userDBFile}">
+
+                                <td th:text="${DBFile.fileCategory}">Category</td>
+                                <td th:text="${DBFile.fileName}">File Name</td>
+                                <td th:text="${DBFile.fileType}">File Name</td>
+                                <td>
+                                    <form th:action="'/downloadFile/' + ${DBFile.id}" method="get">
+                                        <input class="btn btn-success" type="submit" value="Download"/>
+                                    </form>  
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <form class="col-xs-3 col-sm-3 col-md-3" th:action="@{/upload}" method="get">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Add New File"/>
+                </form>  
+            </div>
+
+            <div>
+                <form class="col-xs-3 col-sm-3 col-md-3" th:action="@{/addclient}" method="get">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Add New Client"/>
+                </form>  
+            </div>
+
+            <form class="col-xs-3 col-sm-3 col-md-3" th:action="@{/logout}" method="post">
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign Out"/>
+            </form>                         
+        </div>
+        <div th:replace="fragments/footer :: footer"/>
+    </body>
+</html>

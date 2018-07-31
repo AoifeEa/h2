@@ -1,6 +1,5 @@
 // *ref: https://www.callicoder.com/spring-boot-file-upload-download-jpa-hibernate-mysql-database-example/
 //* @ 29th July 2018
-
 package KYC;
 
 import KYC.init.ClientService;
@@ -23,43 +22,55 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.ModelAndView;
 
-
-
 @Controller
 public class FileController {
 
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private ClientService clientService;
     @Autowired
     private DBFileStorageService DBFileStorageService;
-    
-    
+
+    @RequestMapping(value = "/files", method = RequestMethod.GET)
+    public ModelAndView currentUserName(ModelAndView modelAndView, Authentication authentication) {
+        modelAndView.setViewName("files");
+
+        if (!authentication.getAuthorities().toString().contains("Admin")) {
+            User user = userService.findByUsername(authentication.getName());
+            List<Client> clients = clientService.findByuser_id(user);
+
+            modelAndView.addObject("clients", clients);
+            return modelAndView;
+        }
+        List<Client> clients = clientService.findAll();
+        modelAndView.addObject("clients", clients);
+        return modelAndView;
+    }
+
     @GetMapping("/upload")
     public ModelAndView showAddClientPage(ModelAndView modelAndView, DBFile dbfile, Authentication authentication) {
         modelAndView.addObject("dbfile", dbfile);
         modelAndView.setViewName("upload");
-        
-            User user = userService.findByUsername(authentication.getName());
-            List<Client> clients = clientService.findByuser_id(user);
-            modelAndView.addObject("clients", clients);
-        
+
+        User user = userService.findByUsername(authentication.getName());
+        List<Client> clients = clientService.findByuser_id(user);
+        modelAndView.addObject("clients", clients);
+
         return modelAndView;
     }
 
     @PostMapping("/upload")
-    public DBFile upload(@RequestParam MultipartFile file, @RequestParam String clientName, @RequestParam String fileCategory) {
+    public String upload(@RequestParam MultipartFile file, @RequestParam String client, @RequestParam String fileCategory) {
+        DBFileStorageService.storeFile(file, client, fileCategory);
 
-        DBFile finalFile = DBFileStorageService.storeFile(file, clientName, fileCategory);
-       
-        return finalFile;
+        return "redirect:/files";
     }
 
     @GetMapping("/downloadFile/{fileId}")

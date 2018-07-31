@@ -32,15 +32,19 @@
                 </tbody>
             </table>
         </div>
-
         <div>
-            <form th:action="@{/addclient}" method="get">
-                <input type="submit" value="Add New Client"/>
+            <form class="col-xs-3 col-sm-3 col-md-3" th:action="@{/files}" method="get">
+                <input  class="btn btn-lg btn-primary btn-block" type="submit" value="Client File"/>
+            </form>  
+        </div>
+        <div>
+            <form class="col-xs-3 col-sm-3 col-md-3" th:action="@{/addclient}" method="get">
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Add New Client"/>
             </form>  
         </div>
 
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+        <form  class="col-xs-3 col-sm-3 col-md-3"th:action="@{/logout}" method="post">
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign Out"/>
         </form>                          
         <div th:replace="fragments/footer :: footer"/>
     </body>

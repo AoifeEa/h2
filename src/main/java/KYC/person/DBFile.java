@@ -2,15 +2,19 @@
  *  *ref: https://www.callicoder.com/spring-boot-file-upload-download-jpa-hibernate-mysql-database-example/
  * @ 29th July 2018
  */
-
 package KYC.person;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 ;
 
@@ -24,9 +28,22 @@ public class DBFile {
     private String id;
 
     private String fileName;
-    private String clientName;
+
     private String fileCategory;
     private String fileType;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "CLIENT_ID", nullable = false)
+    private Client client;
+
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     @Lob
     private byte[] data;
@@ -35,12 +52,12 @@ public class DBFile {
 
     }
 
-    public DBFile(String fileName, String fileType, byte[] data, String clientName, String fileCategory) {
+    public DBFile(String fileName, String fileType, byte[] data, Client client, String fileCategory) {
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
-        this.clientName = clientName;
         this.fileCategory = fileCategory;
+        this.client = client;
     }
 
     public String getId() {
@@ -73,14 +90,6 @@ public class DBFile {
 
     public void setData(byte[] data) {
         this.data = data;
-    }
-
-    public String getClientName() {
-        return clientName;
-    }
-
-    public void setClientName(String username) {
-        this.clientName = username;
     }
 
     public String getFileCategory() {

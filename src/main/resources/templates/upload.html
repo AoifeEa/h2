@@ -13,19 +13,19 @@
                           data-toggle="validator">
                         <div class="form-group input-group has-feedback">
                             <td>Select client:</td>
-                            <td>
-                                <select th:field="*{clientName}">
-                                    <option value=""> -- </option>
-                                    <option th:each="client : ${clients}"
-                                            th:value="${client.clientname}"
-                                            th:utext="${client.clientname}"/>
-                                </select>
-                            </td>
-                            
+
+                            <select th:field="*{client}">
+                                <option value=""> -- </option>
+                                <option th:each="client : ${clients}"
+                                        th:value="${client.clientname}"
+                                        th:utext="${client.clientname}"/>
+                            </select>
+
+
                         </div>
                         <div class="form-group input-group has-feedback">
 
-                        <td>Select File Category</td>
+                            <td>Select File Category</td>
                             <td>
                                 <select th:field="*{fileCategory}">
                                     <option value="form1"> form1 </option>
@@ -34,7 +34,7 @@
                                 </select>
                             </td>
                         </div>
-                        
+
                         <div class="form-group input-group has-feedback">
                             <input type="file" name="file" />
 

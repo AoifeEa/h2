@@ -5,6 +5,7 @@
 package KYC.init;
 
 import KYC.dao.DBFileRepository;
+import KYC.person.Client;
 import KYC.person.DBFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,15 +21,17 @@ public class DBFileStorageService {
 
     @Autowired
     private DBFileRepository dbFileRepository;
-
+    
+    @Autowired
+    private ClientService clientService;
     
     public DBFile storeFile(MultipartFile file, String clientName, String fileCategory) {
         DBFile dbFile = null;
         try {
             // Normalize file name
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-
-            dbFile = new DBFile(fileName, file.getContentType(), file.getBytes(), clientName, fileCategory);
+            Client client = clientService.findByClientname(clientName);
+            dbFile = new DBFile(fileName, file.getContentType(), file.getBytes(), client, fileCategory);
 
             return dbFileRepository.save(dbFile);
         } catch (IOException ex) {

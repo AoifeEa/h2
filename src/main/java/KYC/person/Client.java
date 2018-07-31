@@ -6,6 +6,9 @@
  */
 package KYC.person;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,26 +16,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-
 @Entity
 @Table(name = "clients")
 public class Client {
-     
-    private Long clientId;
-    
-   private String clientname;
-   
-   private String clienttype;
-   
-   private String country;
- 
- @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
- 
+    private Long clientId;
+
+    private String clientname;
+
+    private String clienttype;
+
+    private String country;
+
     public Long getClientId() {
         return clientId;
     }
@@ -48,27 +50,38 @@ public class Client {
     public void setClientname(String clientname) {
         this.clientname = clientname;
     }
-    
-     public String getClienttype(){
+
+    public String getClienttype() {
         return clienttype;
     }
-    public void setClienttype(String clienttype){
+
+    public void setClienttype(String clienttype) {
         this.clienttype = clienttype;
     }
-    
-     public String getCountry(){
+
+    public String getCountry() {
         return country;
     }
-    public void setCountry(String country){
+
+    public void setCountry(String country) {
         this.country = country;
     }
-    
-   
 
-    private User user;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private Set<DBFile> userDBFile = new HashSet<DBFile>();
+
+    public Set<DBFile> getUserDBFile() {
+        return userDBFile;
+    }
+
+    public void setUserDBFile(Set<DBFile> userDBFile) {
+        this.userDBFile = userDBFile;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @OnDelete(action = OnDeleteAction.CASCADE)
     public User getUser() {
         return user;
