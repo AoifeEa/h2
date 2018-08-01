@@ -4,42 +4,61 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Upload service</title>
-        <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                </head>
-                <body>
+        <div th:replace="fragments/header :: header-css"/>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"/>
+        <div class="container"> 
+            <div class="row">
+                <div
+                    class="col-xs-12 col-sm-8 col-md-6 mx-auto">
+                    <h1>New File Upload</h1>
                     <form autocomplete="off" action="#" th:action="@{/upload}"
                           th:object="${dbfile}" method="post" enctype="multipart/form-data" class="m-t" role="form"
                           data-toggle="validator">
                         <div class="form-group input-group has-feedback">
-                            <td>Select client:</td>
 
-                            <select th:field="*{client}">
-                                <option value=""> -- </option>
-                                <option th:each="client : ${clients}"
-                                        th:value="${client.clientname}"
-                                        th:utext="${client.clientname}"/>
-                            </select>
-
-
-                        </div>
-                        <div class="form-group input-group has-feedback">
-
-                            <td>Select File Category</td>
-                            <td>
-                                <select th:field="*{fileCategory}">
-                                    <option value="form1"> form1 </option>
-                                    <option value="form2"> form2 </option>                                    
-                                    <option value="form3"> form3 </option>                                    
+                            <div class="form-group col-md-6">
+                                <label for="SelectClient">Select client  </label>
+                                <select class="form-control form control-lg" th:field="*{client}">
+                                    <option value=""> -- </option>
+                                    <option th:each="client : ${clients}"
+                                            th:value="${client.clientname}"
+                                            th:utext="${client.clientname}"/>
                                 </select>
-                            </td>
+                            </div>
+                        </div>
+                        <div class="form-group input-group has-feedback">
+
+                            <div class="form-group col-md-6">
+                                <label for="SelectFileCategory">Select File Category  </label>
+                                <select class="form-control form control-lg" th:field="*{fileCategory}">
+                                    <option value="CertOfIncorp"> Cert. of Incorp.</option>
+                                    <option value="ListDirectors"> List of Directors </option>                                    
+                                    <option value="ID&VDirectors"> ID&V of Directors </option>  
+                                    <option value="BeneficialOwnership"> Beneficial Ownership</option>
+                                    <option value="StructureChart"> Structure Chart </option>                                    
+                                    <option value="ID&VShareholders"> ID&V of Shareholders </option>  
+                                </select>
+                                </td>
+                            </div>
                         </div>
 
                         <div class="form-group input-group has-feedback">
-                            <input type="file" name="file" />
+                            <div class="form-group col-md-6">
+                                <input type="file" name="file" />
+                            </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary block full-width m-b">Add</button>
+                        <div class="form-group col-md-6">
+                            <button type="submit" class="btn btn-primary block full-width m-b">Add File</button>
+                        </div>
+
+
                     </form>
-                </body>
-                </html>
+                </div>
+            </div>
+        </div>    
+        <div th:replace="fragments/footer :: footer"/>
+    </body>
+</html>

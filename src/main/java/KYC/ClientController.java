@@ -35,7 +35,7 @@ public class ClientController {
 
     // Process form input data
     @RequestMapping(value = "/addclient", method = RequestMethod.POST)
-    public ModelAndView processClientForm(ModelAndView modelAndView, @Valid Client client, BindingResult bindingResult, HttpServletRequest request, Authentication authentication) {
+    public String processClientForm(ModelAndView modelAndView, @Valid Client client, BindingResult bindingResult, HttpServletRequest request, Authentication authentication) {
 
         // Lookup client 
         Client clientExists = clientService.findByClientname(client.getClientname());
@@ -55,9 +55,8 @@ public class ClientController {
             client.setUser(user);
 
             clientService.add(client);
-            modelAndView.setViewName("clientadded");
         }
-        return modelAndView;
+        return "redirect:/myclients";
     }
 
    @RequestMapping(value = "/myclients", method = RequestMethod.GET)

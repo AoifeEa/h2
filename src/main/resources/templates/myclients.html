@@ -31,10 +31,10 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+       
         <div>
             <form class="col-xs-3 col-sm-3 col-md-3" th:action="@{/files}" method="get">
-                <input  class="btn btn-lg btn-primary btn-block" type="submit" value="Client File"/>
+                <input  class="btn btn-lg btn-primary btn-block" type="submit" value=" Client Files"/>
             </form>  
         </div>
         <div>
@@ -45,7 +45,8 @@
 
         <form  class="col-xs-3 col-sm-3 col-md-3"th:action="@{/logout}" method="post">
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign Out"/>
-        </form>                          
+        </form>  
+             </div>
         <div th:replace="fragments/footer :: footer"/>
     </body>
 </html>

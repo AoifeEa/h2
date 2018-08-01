@@ -37,25 +37,32 @@
                                            class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
 
-                        <div class="form-group input-group has-feedback">
-                            <label th:if="${#fields.hasErrors('clienttype')}"
-                                   th:errors="*{clienttype}" class="validation-message"></label> <span
-                                   class="input-group-addon"> <span
-                                    class="glyphicon glyphicon-user"></span>
-                            </span> <input type="text" th:field="*{clienttype}"
-                                           placeholder="Client Type" class="form-control" required /> <span
-                                           class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
 
                         <div class="form-group input-group has-feedback">
-                            <label th:if="${#fields.hasErrors('country')}"
-                                   th:errors="*{country}" class="validation-message"></label> <span
-                                   class="input-group-addon"> <span
-                                    class="glyphicon glyphicon-user"></span>
-                            </span> <input type="text" th:field="*{country}" placeholder="country"
-                                           class="form-control" required /> <span
-                                           class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                             
+                                <label class="form-control" for="clienttype">Select Client Type </label>
+                                <select th:field="*{clienttype}">
+                                    <option value="Private/Individual"> Private/Individual</option>
+                                    <option value="Limited"> Limited/DAC </option>                                    
+                                    <option value="Partnership"> Partnership </option>  
+                                    <option value="Listed"> Listed </option>
+                                    <option value="SubOfListed"> Sub Of Listed </option>   
+                                    <option value="Regulated"> Regulated </option>
+                                    <option value="SubOfRegulated"> Sub Of Regulated </option>   
+                                </select> 
                         </div>
+                        <div class="form-group input-group has-feedback">
+                             
+                                <label class="form-control" for="Country">Select Clients Country </label>
+                                <select th:field="*{country}">
+                                    <option value="Ireland"> Ireland</option>
+                                    <option value="UK"> UK </option>                                    
+                                    <option value="USA"> USA </option>  
+                                    <option value="EU"> EU Regulated </option>
+                                    <option value="Other"> Other </option>                                    
+                                </select> 
+                        </div>
+
 
                         <button type="submit" class="btn btn-primary block full-width m-b">Add</button>
                     </form>
