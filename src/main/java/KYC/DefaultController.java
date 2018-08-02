@@ -12,7 +12,7 @@ public class DefaultController {
 
     @GetMapping("/")
     public String start() {
-        return "/home";
+        return "home";
     }
 
     @GetMapping("/home")
