@@ -56,7 +56,7 @@ public class ClientController {
 
             clientService.add(client);
         }
-        return "redirect:/myclients";
+        return "redirect:myclients";
     }
 
    @RequestMapping(value = "/myclients", method = RequestMethod.GET)
