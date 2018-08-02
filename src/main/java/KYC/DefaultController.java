@@ -1,5 +1,6 @@
 /*
- * reference: http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/
+ * author Aoife Earl
+ * code reference: http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/
  * @ 11th July 2018
  */
 package KYC;

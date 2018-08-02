@@ -1,9 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author Aoife Earl
+ * code reference: http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/
+ * @ 11th July 2018
  */
-package KYC.init;
+package KYC.service;
 // handle 403 page
 
 import java.io.IOException;

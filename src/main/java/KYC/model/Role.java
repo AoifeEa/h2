@@ -1,5 +1,7 @@
 /*
- * Templateshttps://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
+ * author Aoife Earl
+ * some code references: 
+ * https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/   (& used for Templates)
  */
 package KYC.model;
 

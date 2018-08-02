@@ -1,4 +1,6 @@
 /*
+ * author Aoife Earl
+ * Some code references:
  * Reference: http://www.mkyong.com/spring-boot/spring-boot-spring-security-thymeleaf-example/
  * @11th July 2017 
  * REference: https://www.codebyamir.com/blog/user-account-registration-with-spring-boot
@@ -32,10 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/webjars/**","/index","/", "/home", "/about", "/h2-console/*").permitAll()
-                   //potentially to be added to ^
                 .antMatchers("/admin/**").hasAnyAuthority("Admin")
                 .antMatchers("/user/**", "/myclients").hasAnyAuthority("User","Admin")
-                .antMatchers("/register").permitAll() //may need to be altered??
+                .antMatchers("/register").permitAll() 
                 .antMatchers("/confirm").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -45,6 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll().and().exceptionHandling().accessDeniedPage("/403");
-                http.headers().frameOptions().disable().and().csrf().disable(); //only temporariy here to allow access to the H2 console. 
+                http.headers().frameOptions().disable().and().csrf().disable(); //only temporarily here to allow access to the H2 console. Would not be used in production
     }
 }

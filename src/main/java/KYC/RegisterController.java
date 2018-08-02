@@ -1,4 +1,6 @@
 /*
+ * author Aoife Earl
+ * code references:
  * Reference: https://www.codebyamir.com/blog/user-account-registration-with-spring-boot
  * @ 15th of July 2018
  * Reference: https://spring.io/guides/gs/validating-form-input/
@@ -6,12 +8,11 @@
  */
 package KYC;
 
-import KYC.init.UserService;
+import KYC.service.UserService;
 import KYC.model.Role;
 import KYC.model.User;
 import java.util.HashSet;
 import java.util.Set;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import KYC.dao.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

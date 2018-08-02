@@ -1,6 +1,10 @@
 /*
+ * author Aoife Earl
+ * some code references: 
  * https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
-
+ *
+ * http://websystique.com/springmvc/spring-mvc-4-fileupload-download-hibernate-example/ (file upload, relationship between client & dbfile) 
+ * @ 30th July 2018
  * mapping ref: https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
  * @ 19th July 2018 
  */

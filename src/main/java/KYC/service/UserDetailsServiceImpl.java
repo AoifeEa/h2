@@ -1,9 +1,10 @@
 /*
-https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/ * To change this template file, choose Tools | Templates
-24/06/2018
+ * author Aoife Earl 
+ * code reference: https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/ 
+ * 24/06/2018
 */
 
-package KYC.init;
+package KYC.service;
 
 import KYC.dao.UserRepository;
 import KYC.model.Role;

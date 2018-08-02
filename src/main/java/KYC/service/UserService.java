@@ -1,4 +1,8 @@
-package KYC.init;
+/*
+ * author Aoife Earl 
+*/
+
+package KYC.service;
 
 import KYC.model.User;
 

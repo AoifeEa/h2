@@ -1,8 +1,10 @@
 /*
- *  *ref: https://www.callicoder.com/spring-boot-file-upload-download-jpa-hibernate-mysql-database-example/
-* @ 29th July 2018
+ * author Aoife Earl
+ * some code references: 
+ * https://www.callicoder.com/spring-boot-file-upload-download-jpa-hibernate-mysql-database-example/
+ * @ 29th July 2018
  */
-package KYC.init;
+package KYC.service;
 
 import KYC.dao.DBFileRepository;
 import KYC.model.Client;

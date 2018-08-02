@@ -1,5 +1,9 @@
-
-package KYC.init;
+/*
+ * author Aoife Earl 
+ * code reference: https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/ 
+ * 24/06/2018
+*/
+package KYC.service;
 
 import KYC.dao.RoleRepository;
 import KYC.dao.UserRepository;

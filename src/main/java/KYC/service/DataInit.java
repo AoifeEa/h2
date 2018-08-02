@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * author Aoife Earl
  */
-package KYC.init;
+package KYC.service;
 
 import KYC.model.Client;
 import KYC.model.Role;
@@ -30,9 +28,9 @@ public class DataInit implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-       
+       //search for user "Aoife"
         User userExists = userService.findByUsername("Aoife");
-        
+        //if user "Aoife" does not exist, create user with roles "user" & "admin"
         if (userExists== null) {
             User user1 = new User();
             Role r1 = new Role();
@@ -40,17 +38,18 @@ public class DataInit implements ApplicationRunner {
             r1.setName("Admin");
             r2.setName("User");
 
-            roleRepository.save(r1);
-            roleRepository.save(r2);
-            Set<Role> roles = new HashSet();
+            roleRepository.save(r1);//save role admin
+            roleRepository.save(r2);//save role user
+            Set<Role> roles = new HashSet(); //initializing set of roles
             roles.add(r1);
             roles.add(r2);
-            user1.setRoles(roles);
+            user1.setRoles(roles);//add roles to the "Aoife" user
             user1.setUsername("Aoife");
             user1.setPassword("abc");
 
             userService.save(user1);
-
+            
+            //initializing, defining and adding clients to user "Aoife" 
             Client client = new Client();
             client.setClientname("abc.ltd");
             client.setClienttype("Standard Ltd");
@@ -66,7 +65,7 @@ public class DataInit implements ApplicationRunner {
             client2.setClienttype("Sub of Listed");
             client2.setCountry("Ireland");
             client2.setUser(user1);
-
+            //saving clients to repository
             clientService.add(client);
             clientService.add(client1);
             clientService.add(client2);
