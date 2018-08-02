@@ -7,8 +7,8 @@
 package KYC;
 
 import KYC.init.UserService;
-import KYC.person.Role;
-import KYC.person.User;
+import KYC.model.Role;
+import KYC.model.User;
 import java.util.HashSet;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;

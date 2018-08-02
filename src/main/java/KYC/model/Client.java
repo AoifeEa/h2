@@ -4,7 +4,7 @@
  * mapping ref: https://www.callicoder.com/hibernate-spring-boot-jpa-one-to-many-mapping-example/
  * @ 19th July 2018 
  */
-package KYC.person;
+package KYC.model;
 
 import java.util.HashSet;
 import java.util.Set;

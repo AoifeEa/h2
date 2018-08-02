@@ -2,7 +2,7 @@
  *  *ref: https://www.callicoder.com/spring-boot-file-upload-download-jpa-hibernate-mysql-database-example/
  * @ 29th July 2018
  */
-package KYC.person;
+package KYC.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

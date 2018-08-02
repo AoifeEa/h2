@@ -3,7 +3,7 @@ package KYC.init;
 
 import KYC.dao.RoleRepository;
 import KYC.dao.UserRepository;
-import KYC.person.User;
+import KYC.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.HashSet;

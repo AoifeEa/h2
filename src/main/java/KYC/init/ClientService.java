@@ -1,7 +1,7 @@
 package KYC.init;
 
-import KYC.person.Client;
-import KYC.person.User;
+import KYC.model.Client;
+import KYC.model.User;
 import java.util.List;
 
 

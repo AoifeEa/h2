@@ -1,10 +1,10 @@
 package KYC;
 
 import KYC.dao.DBFileRepository;
-import KYC.person.Client;
+import KYC.model.Client;
 import KYC.init.ClientService;
 import KYC.init.UserService;
-import KYC.person.User;
+import KYC.model.User;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;

@@ -1,7 +1,7 @@
 /*
  * https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/
  */
-package KYC.person;
+package KYC.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

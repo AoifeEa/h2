@@ -5,9 +5,9 @@
  */
 package KYC.init;
 
-import KYC.person.Client;
-import KYC.person.Role;
-import KYC.person.User;
+import KYC.model.Client;
+import KYC.model.Role;
+import KYC.model.User;
 import java.util.HashSet;
 import java.util.Set;
 import KYC.dao.RoleRepository;

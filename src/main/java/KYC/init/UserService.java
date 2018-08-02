@@ -1,6 +1,6 @@
 package KYC.init;
 
-import KYC.person.User;
+import KYC.model.User;
 
 
 public interface UserService {

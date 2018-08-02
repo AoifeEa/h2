@@ -5,8 +5,8 @@
 package KYC.init;
 
 import KYC.dao.DBFileRepository;
-import KYC.person.Client;
-import KYC.person.DBFile;
+import KYC.model.Client;
+import KYC.model.DBFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

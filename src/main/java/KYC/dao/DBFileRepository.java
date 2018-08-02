@@ -4,7 +4,7 @@
  */
 package KYC.dao;
 
-import KYC.person.DBFile;
+import KYC.model.DBFile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
